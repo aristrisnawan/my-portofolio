@@ -3,10 +3,10 @@ import bg from "../images/bg.jpg";
 import aris from "../images/aris.png";
 import Cvaris from "../file/cv_aris.pdf";
 import test from "../images/test.jpg";
-// import tasty from "../images/tasty.png";
-// import workout from "../images/workout.png";
-// import quran from "../images/quran.png";
-// import cardlist from "../images/cardlist.png";
+import tasty from "../images/tasty.PNG";
+import workout from "../images/workout.PNG";
+import quran from "../images/quran.PNG";
+import cardlist from "../images/cardlist.PNG";
 
 export default function LayoutComponent() {
   return (
@@ -70,68 +70,74 @@ export function AboutComponent() {
 }
 
 export function PortofolioComponent() {
-  let [data] = useState(
-    {
-      id: 1,
-      nama: "Tasty Food",
-      // gambar: `${tasty}`,
-      tools: [
-        {
-          id: 1,
-          nama: "reactjs",
-        },
-        {
-          id: 2,
-          nama: "tailwindcss",
-        },
-      ],
-    },
-    {
-      id: 2,
-      nama: "Fitness Landing Page",
-      // gambar: `${workout}`,
-      tools: [
-        {
-          id: 1,
-          nama: "reactjs",
-        },
-        {
-          id: 2,
-          nama: "tailwindcss",
-        },
-      ],
-    },
-    {
-      id: 3,
-      nama: "Alquran Web",
-      // gambar: `${quran}`,
-      tools: [
-        {
-          id: 1,
-          nama: "reactjs",
-        },
-        {
-          id: 2,
-          nama: "tailwindcss",
-        },
-      ],
-    },
-    {
-      id: 4,
-      nama: "Card List",
-      // gambar: `${cardlist}`,
-      tools: [
-        {
-          id: 1,
-          nama: "reactjs",
-        },
-        {
-          id: 2,
-          nama: "tailwindcss",
-        },
-      ],
-    }
-  );
+  let [data] = useState({
+    porto: [
+      {
+        id: 1,
+        nama: "Tasty Food",
+        gambar: `${tasty}`,
+        url: "https://tasty-food-kappa.vercel.app/",
+        tools: [
+          {
+            id: 1,
+            nama: "reactjs",
+          },
+          {
+            id: 2,
+            nama: "tailwindcss",
+          },
+        ],
+      },
+      {
+        id: 2,
+        nama: "Fitness Landing Page",
+        gambar: `${workout}`,
+        url: "https://fitness-landing-page.vercel.app/",
+        tools: [
+          {
+            id: 1,
+            nama: "reactjs",
+          },
+          {
+            id: 2,
+            nama: "tailwindcss",
+          },
+        ],
+      },
+      {
+        id: 3,
+        nama: "Alquran Web",
+        gambar: `${quran}`,
+        url: "https://quran-web-zeta.vercel.app/",
+        tools: [
+          {
+            id: 1,
+            nama: "reactjs",
+          },
+          {
+            id: 2,
+            nama: "tailwindcss",
+          },
+        ],
+      },
+      {
+        id: 4,
+        nama: "Card List",
+        gambar: `${cardlist}`,
+        url: "https://tailwind-cardlist.vercel.app/",
+        tools: [
+          {
+            id: 1,
+            nama: "reactjs",
+          },
+          {
+            id: 2,
+            nama: "tailwindcss",
+          },
+        ],
+      },
+    ],
+  });
   return (
     <div className=" mobile:px-4 mobile:mt-2 mobile:mb-4">
       <div className="bg-white mobile:flex mobile:flex-col mobile:w-full shadow-lg mobile:pb-4">
@@ -139,23 +145,35 @@ export function PortofolioComponent() {
           <p>My Portofolio</p>
         </div>
         <div className="mobile:grid mobile:grid-cols-1 mobile:px-2">
-          <div className="mobile:w-full bg-white-100 shadow-md mobile:flex mobile:flex-col mobile:mt-3 pb-3">
-            <div
-              className="mobile:w-full mobile:h-40 bg-cover hover:contrast-100"
-              style={{ backgroundImage: `url(${test})` }}
-            ></div>
-            <div>
-              <p className="mobile:mx-1">Halo test ya</p>
-              <div className="flex flex-row mobile:mt-2 mobile:space-x-2">
-                <span className="mobile:p-0 mobile:px-1 rounded-full bg-blue-400 mobile:space-x-2 mobile:text-sm text-white">
-                  #reactjs
-                </span>
-                <span className="mobile:p-0 mobile:px-1 rounded-full bg-blue-400 mobile:space-x-2 mobile:text-sm text-white">
-                  #tailwindcss
-                </span>
+          {data.porto.map((items) => {
+            return (
+              <div>
+                <a href={items.url} key={items.id} target="_blank">
+                  <div className="mobile:w-full bg-white-100 shadow-md mobile:flex mobile:flex-col mobile:mt-3 pb-3">
+                    <div
+                      className="mobile:w-full mobile:h-40 bg-cover hover:contrast-100"
+                      style={{ backgroundImage: `url(${items.gambar})` }}
+                    ></div>
+                    <div>
+                      <p className="mobile:mx-1">{items.nama}</p>
+                      <div className="flex flex-row mobile:mt-2 mobile:space-x-2">
+                        {items.tools.map((tool) => {
+                          return (
+                            <div key={tool.id}>
+                              <span className="mobile:p-0 mobile:px-1 rounded-full bg-blue-400 mobile:space-x-2 mobile:text-sm text-white">
+                                <span>#</span>
+                                {tool.nama}
+                              </span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                </a>
               </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
     </div>
