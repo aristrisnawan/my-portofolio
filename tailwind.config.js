@@ -6,6 +6,7 @@ module.exports = {
                 mobile: "320px",
                 tablet: "640px",
                 laptop: "1024px",
+                laptop1: "1440",
                 desktop: "1280px",
             },
         },
