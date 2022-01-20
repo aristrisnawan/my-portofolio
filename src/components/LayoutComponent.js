@@ -25,14 +25,15 @@ export function BannerComponent() {
   return (
     <div className="mobile:px-4 mb-3 tablet:px-0">
       <div
-        className="mobile:w-full mobile:h-56 bg-zinc-300 bg-cover flex mobile:flex-col mobile:px-4 tablet:flex-row tablet:justify-between tablet:h-96"
+        className="mobile:w-full mobile:h-56 bg-zinc-300 bg-cover flex mobile:flex-col mobile:px-4 tablet:flex-row tablet:justify-between tablet:h-96 laptop:h-screen"
         style={{ backgroundImage: `url(${bg})` }}
       >
         <div className="my-auto mobile:mx-auto tablet:mx-0">
-          <p className="text-white text-xl font-semibold">
-            Hi, Im <span className="font-bold">Aris</span> Trisnawan
+          <p className="text-white text-xl font-semibold laptop:font-bold laptop:text-3xl">
+            Hi, Im <span className="font-bold laptop:font-extrabold">Aris</span>{" "}
+            Trisnawan
           </p>
-          <p className="text-white text-xl font-semibold">
+          <p className="text-white text-xl font-semibold laptop:text-2xl laptop:font-bold">
             Im Frontend Developer
           </p>
         </div>
@@ -157,19 +158,19 @@ export function PortofolioComponent() {
         <div className="  mobile:px-2 mobile:py-2 font-medium">
           <p>My Portofolio</p>
         </div>
-        <div className="grid mobile:grid-cols-1 mobile:px-2 tablet:grid-cols-3 tablet:space-x-2 laptop:space-x-5">
+        <div className="grid mobile:grid-cols-1 mobile:px-2 tablet:grid-cols-3 tablet:gap-2 laptop:gap-5">
           {data.porto.map((items) => {
             return (
               <div key={items.id}>
                 <a href={items.url} target="_blank">
-                  <div className="mobile:w-full bg-white-100 shadow-md mobile:flex mobile:flex-col mobile:mt-3 pb-3 tablet:h-72 hover:opacity-75">
+                  <div className="mobile:w-full bg-white-100 shadow-md mobile:flex mobile:flex-col mobile:mt-3 pb-3 tablet:h-60 hover:opacity-75 laptop:h-72">
                     <div
                       className="mobile:w-full mobile:h-40 bg-cover hover:contrast-100 flex"
                       style={{ backgroundImage: `url(${items.gambar})` }}
                     >
-                      {/* <p className="my-auto mx-auto p-5 hover:opacity-100 opacity-50">
+                      <p className="my-auto mx-auto p-5 hover:opacity-100 opacity-50">
                         Mata
-                      </p> */}
+                      </p>
                     </div>
                     <div>
                       <p className="mobile:mx-1 laptop:mx-3 laptop:mt-5 font-semibold">
